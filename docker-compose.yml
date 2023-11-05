@@ -1,0 +1,20 @@
+version: '3.8'
+
+
+services:
+
+  inventory_pg:
+    image: postgres:latest
+    container_name: inventory_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=soybi
+      - POSTGRES_PASSWORD=soybi!2023
+      - POSTGRES_DB=inventory_db
+    volumes:
+      - inv:/var/lib/postgresql/data
+
+volumes:
+  inv:
+    external: true
